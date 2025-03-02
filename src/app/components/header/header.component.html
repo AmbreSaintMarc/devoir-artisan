@@ -1,30 +1,39 @@
-<nav class="navbar navbar-expand-sm">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
+
         <a routerLink="">
         <img class="logo "src="./Logo.png" alt="Logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
+
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto" style="padding-right: 20px;">
                 <li class="nav-item">
-                   <a routerLink="/list" class="nav-link" href="javascript:void(0)">Bâtiment</a>
+                   <a class="nav-link" routerLink="/list" [routerLink]="'/list'" (click)="isMenuCollapsed = true">Bâtiment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/list" href="javascript:void(0)">Services</a>
+                    <a class="nav-link" [routerLink]="'/list'" (click)="isMenuCollapsed = true">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/list" href="javascript:void(0)">Frabrication</a>
+                    <a class="nav-link" [routerLink]="'/list'" (click)="isMenuCollapsed = true">Frabrication</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/list" href="javascript:void(0)">Alimentation</a>
+                    <a class="nav-link" [routerLink]="'/list'" (click)="isMenuCollapsed = true">Alimentation</a>
                 </li>
             </ul>
             <form class="d-flex">
                 <input class="form-control me-2" type="text" placeholder="Recherche">
-                <button class="btn btn-" style="background-color: #0074c7;"type="button">Search</button>
+                <button type="submit" class="btn ">
+                    <span class="bi-search" style="font-size: 1.5rem; color:#0074c7"></span>
+                </button>
             </form>
         </div>
+
     </div>
 </nav>
+
+
+
+

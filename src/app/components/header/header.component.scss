@@ -2,17 +2,23 @@
     width: 250px;
     padding-right: 20px;
 }
-@media (max-width: 765px) { 
+
+@media (max-width: 992px) { 
     .logo {
-        width: 150px;
+        width: 200px;
+    }
+    input {
+        width: 50%;
     }
 }
 
 .navbar {
     padding: 20px;
     background-color: #f1f8fc;
+    font-family: 'Graphik';
 }
 
 .nav-link {
     color: #0074c7;
 }
+
