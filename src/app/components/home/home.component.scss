@@ -1,0 +1,76 @@
+
+$font: 'Graphik', Helvetica, sans-serif;
+$color:#00497c;
+$color-secondary: #0074c7;
+
+main {
+    width: 100%;
+    font: $font;
+
+    .color-dash {
+        width: 40px;
+        height: 7px;
+        background-color: #82b864;
+        align-self: center;
+        margin-right: 20px;
+    }
+}
+
+
+.home-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+    
+    h1{
+        color: $color;
+        font-weight: bold;
+        font-size: 4.2em;
+    }
+    h2 {
+        color:$color-secondary;
+        font-size: 2.1em;
+    }
+}
+
+.home-find-artisan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    .home-find-artisan_title {
+        display: flex;
+        flex-direction: row;
+        align-self: baseline;
+        margin-left: 20%;
+        padding-bottom: 30px;
+
+        h3 {
+            color: $color;
+            font-size: 2.2em;
+        }
+    }
+    .home-find-artisan_steps {
+        font-size: 1.50em;
+        padding-left: 10%;
+    }
+}
+
+.home-month-artisan {
+    margin: 50px;
+    
+    .home-month-artisan_title {
+        display: flex;
+        flex-direction: row;
+        align-self: baseline;
+        margin-left: 20%;
+        padding-bottom: 30px;
+
+        h3 {
+            color: $color;
+            font-size: 2.2em;
+        }
+    }
+}
