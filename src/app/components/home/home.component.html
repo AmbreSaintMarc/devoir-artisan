@@ -28,7 +28,15 @@
                 <div class="color-dash"></div>
                 <h3>Nos artisans du mois</h3>
             </div>
-
+            <form>
+                <input type="text" placeholder="Filter by city" #filter />
+                <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+              </form>
+            <div>
+                @for(artisan of filteredArtisanList; track artisan) {
+                    <app-artisan [artisan]="artisan"></app-artisan>
+                }
+            </div>
         </section>
 
     </div>
