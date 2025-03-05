@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArtisansService} from '../../artisans.service';
-import { ArtisanComponent } from '../../artisan/artisan.component';
+import { ArtisanComponent } from '../artisan/artisan.component';
 import { Artisan } from '../../artisan';
 
 

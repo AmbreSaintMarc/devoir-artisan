@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ArtisanListComponent } from './components/artisan-list/artisan-list.component';
-import { DetailsComponent } from './details/details.component';
+import { DetailsComponent } from './components/details/details/details.component';
 import { PageInBuildingComponent } from './components/page-in-building/page-in-building.component';
 import { Page404Component } from './components/page404/page404.component';
 
@@ -18,7 +18,7 @@ export const routes: Routes = [
         
     },
     {
-        path:'details',
+        path:'details/:id',
         component: DetailsComponent,
         
     },
