@@ -4,15 +4,13 @@ import { ArtisansService} from '../../artisans.service';
 import { ArtisanComponent } from '../artisan/artisan.component';
 import { Artisan } from '../../artisan';
 
-
 @Component({
-  selector: 'app-home',
+  selector: 'app-artisan-search',
   imports: [CommonModule, ArtisanComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
-  providers: [ArtisansService]
+  templateUrl: './artisan-search.component.html',
+  styleUrl: './artisan-search.component.scss'
 })
-export class HomeComponent {
+export class ArtisanSearchComponent {
   public artisans : Artisan[] = []
   artisanList: Artisan[] = [];
 
@@ -25,5 +23,3 @@ export class HomeComponent {
 
 
 }
-
-

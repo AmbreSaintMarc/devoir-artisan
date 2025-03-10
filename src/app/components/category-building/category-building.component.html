@@ -1,0 +1,7 @@
+<p>category-building works!</p>
+<div>    
+    @for(artisan of artisanList ; track artisan) {
+    <app-artisan *ngIf="artisan.category === 'Bâtiment'" [artisan]="artisan"></app-artisan>
+}
+</div>
+
