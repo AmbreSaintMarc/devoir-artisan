@@ -28,15 +28,14 @@
                 <div class="color-dash"></div>
                 <h3>Nos artisans du mois</h3>
             </div>
-            <form>
-                <input type="text" placeholder="Filter by city" #filter />
-                <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
-              </form>
-            <div>
-                @for(artisan of filteredArtisanList; track artisan) {
-                    <app-artisan [artisan]="artisan"></app-artisan>
-                }
+
+
+            <div>    
+                @for(artisan of artisanList ; track artisan) {
+                <app-artisan *ngIf="artisan.top" [artisan]="artisan"></app-artisan>
+            }
             </div>
+
         </section>
 
     </div>

@@ -4,26 +4,19 @@ import { ArtisansService} from '../../artisans.service';
 import { ArtisanComponent } from '../artisan/artisan.component';
 import { Artisan } from '../../artisan';
 
-
 @Component({
-  selector: 'app-home',
+  selector: 'app-category-manufacturing',
   imports: [CommonModule, ArtisanComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
-  providers: [ArtisansService]
+  templateUrl: './category-manufacturing.component.html',
+  styleUrl: './category-manufacturing.component.scss'
 })
-export class HomeComponent {
+export class CategoryManufacturingComponent {
   public artisans : Artisan[] = []
   artisanList: Artisan[] = [];
-
 
   constructor(private service : ArtisansService) {
     this.service.getAllArtisans().then((artisanList: Artisan[]) => {
       this.artisanList = artisanList ;
     });
   }
-
-
 }
-
-

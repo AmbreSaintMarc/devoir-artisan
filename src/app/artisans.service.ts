@@ -1,4 +1,4 @@
-import { Injectable, OnInit, Input } from '@angular/core';
+import { Injectable} from '@angular/core';
 
 import { Artisan } from './artisan';
 
@@ -8,7 +8,6 @@ import { Artisan } from './artisan';
   providedIn: 'root'
 })
 export class ArtisansService {
-
   url = 'http://localhost:3000/artisans';
 
   async getAllArtisans(): Promise<Artisan[]> {
@@ -21,4 +20,19 @@ export class ArtisansService {
     return (await data.json()) ?? {};  
   }
 
+  async getArtisansByTop(top:boolean): Promise<Artisan | undefined> {
+    const data = await fetch(`${this.url}/${top}`)
+    return (await data.json()) ?? {};  
+  
+  }
+
+
+  // topArtisans() {
+  //   if (this.artisan?.top === true) {
+  //     return this.topArtisanList
+  //   }
+  //   else return
+  // }
+
+  
 }

@@ -13,7 +13,9 @@ import { Router } from '@angular/router';
 export class ArtisanComponent {
   
   artisan = input.required<Artisan>()
+  
 
+  //how to display details page on click 
   constructor(private router: Router) {}
   
   navigateToArtisanDetails() {

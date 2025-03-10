@@ -11,16 +11,16 @@
         <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto" style="padding-right: 20px;">
                 <li class="nav-item">
-                   <a class="nav-link" routerLink="/list" [routerLink]="'/list'" (click)="isMenuCollapsed = true">Bâtiment</a>
+                   <a class="nav-link" [routerLink]="'/building'" (click)="isMenuCollapsed = true">Bâtiment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'/list'" (click)="isMenuCollapsed = true">Services</a>
+                    <a class="nav-link" [routerLink]="'/services'" (click)="isMenuCollapsed = true">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'/list'" (click)="isMenuCollapsed = true">Frabrication</a>
+                    <a class="nav-link" [routerLink]="'/manufacturing'" (click)="isMenuCollapsed = true">Frabrication</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'/list'" (click)="isMenuCollapsed = true">Alimentation</a>
+                    <a class="nav-link" [routerLink]="'/food'" (click)="isMenuCollapsed = true">Alimentation</a>
                 </li>
             </ul>
             <form class="d-flex">
