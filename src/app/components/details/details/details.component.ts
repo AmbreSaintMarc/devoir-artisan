@@ -1,15 +1,22 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArtisansService } from '../../../artisans.service';
 import { Artisan } from '../../../artisan';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { CommonModule } from '@angular/common';
+
+import { NgForm, FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-details',
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
-export class DetailsComponent {
+
+export class DetailsComponent{
+  //render the artisans
   route: ActivatedRoute = inject(ActivatedRoute);
   artisanService = inject(ArtisansService);
   artisan: Artisan | undefined;
@@ -23,4 +30,22 @@ export class DetailsComponent {
   }
 
 
+
+  public sendEmail(e: Event) {
+
+    emailjs
+      .sendForm('service_portfolioASM2024', 'template_109fh61', e.target as HTMLFormElement, {
+        publicKey: 'NnsCukYT7qi_BWB4D',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', (error as EmailJSResponseStatus).text);
+        },
+      );
+  }
 }
+ 
+
