@@ -3,3 +3,50 @@
 <p>{{artisan?.note}}</p>
 <div>{{artisan?.email}}</div>
 <div>{{artisan?.top}}</div>
+
+
+<section class="contact-form">
+    <h2>Formulaire de contact :</h2>
+    
+    <form #contactForm="ngForm" (ngSubmit)="sendEmail($event)" class="col g-3">
+
+        <div class="mb-3">
+            <input type="text" class="form-control" name="lastName" ngModel required #lastName="ngModel" placeholder="Votre nom">
+            @if (lastName.invalid && lastName.touched ) {
+                <p class="text-danger">Champ requis</p>
+            }
+        </div>
+
+        <div class="mb-3">
+            <input type="text" class="form-control" name="firstName" ngModel required placeholder="Votre prénom">
+        </div>
+
+        <div class="mb-3">
+            <input type="text"  class="form-control" name="subject" ngModel required #subject="ngModel" placeholder="Sujet du message">
+            @if (subject.invalid && subject.touched ) {
+                <p class="text-danger">Champ requis</p>
+            }
+        </div>
+
+        <div class="mb-3">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="textarea" name="message" ngModel required #message="ngModel" placeholder="Votre message"></textarea>
+            @if (message.invalid && message.touched ) {
+                <p class="text-danger">Champ requis</p>
+            }
+        </div>
+
+        <button type="submit" [disabled]="!contactForm.valid" (click)="myDialog.show(); contactForm.reset()">Envoyer</button>
+
+    </form>
+
+    <dialog class="sent-contact-form" #myDialog>
+        <div class="sent-contact-form_content">
+            <p>Votre demande de contact a bien été envoyée à {{artisan?.email}}. Vous devriez être recontacté sous peu.</p>
+            <button (click)="myDialog.close()">Merci</button>
+        </div>
+    </dialog>
+
+</section>
+
+
+
