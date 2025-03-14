@@ -1,6 +1,8 @@
 import { Injectable} from '@angular/core';
 
 import { Artisan } from './artisan';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 
@@ -21,5 +23,9 @@ export class ArtisansService {
     return (await data.json()) ?? {};  
   }
 
-  
+  async getArtisansByCategory(category:string): Promise<Artisan | undefined> {
+    const data = await fetch(`${this.url}/${category}`);
+    return (await data.json()) ?? {};  
+  }
+
 }

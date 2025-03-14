@@ -5,7 +5,7 @@ import { Artisan } from '../../../artisan';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { CommonModule } from '@angular/common';
 
-import { NgForm, FormsModule } from '@angular/forms';
+import {FormsModule } from '@angular/forms';
 
 
 @Component({
