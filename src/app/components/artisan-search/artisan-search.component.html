@@ -1,6 +1,19 @@
+
 <p>artisan-search works!</p>
-<div>    
-    @for(artisan of artisanList ; track artisan) {
-    <app-artisan  [artisan]="artisan"></app-artisan>
+<div class="routerLinkActive">   
+    @for( artisan of artisanList ; track artisan) {
+        @if (isBuilding == true) {
+            <app-artisan   *ngIf="(artisan.category === 'Bâtiment') "[artisan]="artisan">{{artisan.name}}</app-artisan>
+        } 
+        @if (isServices == true) {
+            <app-artisan   *ngIf="(artisan.category === 'Services') "[artisan]="artisan">{{artisan.name}}</app-artisan>
+        } 
+        @if (isManufacturing == true) {
+            <app-artisan   *ngIf="(artisan.category === 'Fabrication') "[artisan]="artisan">{{artisan.name}}</app-artisan>
+        } 
+        @if (isFood == true) {
+            <app-artisan   *ngIf="(artisan.category === 'Alimentation') "[artisan]="artisan">{{artisan.name}}</app-artisan>
+        } 
+    
 }
 </div>

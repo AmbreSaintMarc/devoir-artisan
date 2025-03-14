@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Artisan } from '../../artisan';
+import { ArtisansService } from '../../artisans.service';
 
 @Component({
   selector: 'app-page404',
