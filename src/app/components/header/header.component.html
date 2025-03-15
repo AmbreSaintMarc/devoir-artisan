@@ -24,7 +24,7 @@
                 </li>
             </ul>
             <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-                <input  class="form-control me-2" type="text" placeholder="Filtrer par nom" #filter formControlName="searchValue">
+                <input  class="form-control me-2" type="text" placeholder="Recherche" #filter formControlName="searchValue">
                 <button  type="submit" class="btn "  >
                     <span class="bi-search" style="font-size: 1.5rem; color:#0074c7"></span>
                 </button>
