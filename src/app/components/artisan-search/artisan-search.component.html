@@ -1,9 +1,14 @@
 
-<div class="routerLinkActive">   
-    @for( artisan of artisansList ; track artisan) {
+<div class="container"> 
+    <div class="title">
+        <h2>Nos artisans</h2>
+        <div class="color-dash"></div>
+    </div>
+    <div class="artisans-list">
+        @for( artisan of artisansList ; track artisan) {
             @if (artisan.category === category || category === '' ) {
                 <app-artisan    [artisan]="artisan"></app-artisan>
             }
-
-}
+        }
+    </div>  
 </div>
