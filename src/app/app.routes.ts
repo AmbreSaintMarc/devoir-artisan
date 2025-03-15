@@ -11,32 +11,37 @@ export const routes: Routes = [
     {
         path:'',
         component: HomeComponent,
+        title: 'Accueil',
     },
     {
         path:'artisans-search/:category',
         component: ArtisanSearchComponent,
+        title: 'Artisans',
         
     },
     {
         path:'artisans-search',
         redirectTo: 'artisans-search/',
         pathMatch: 'full',
+        title: 'Artisans',
         
     },
     {
         path:'details/:id',
         component: DetailsComponent,
+        title: 'Fiche artisan',
         
     },
     {
         path:'in-progress',
         component: PageInBuildingComponent,
+        title: 'Page en construction',
         
     },
     {
-        path:'page-404',
+        path:'**',
         component: Page404Component,
+        title: 'Page 404',
 
-        
     }
 ];

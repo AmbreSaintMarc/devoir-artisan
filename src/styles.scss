@@ -18,11 +18,5 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Graphik';
-    src: url('./Graphik-Family/Graphik-RegularItalic-Trial.otf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-}
 
 $stack: 'Graphik', Helvetica, sans-serif;

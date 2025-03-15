@@ -1,54 +1,71 @@
-<p>details works!</p>
-<h1>{{artisan?.name}}</h1>
-<div>{{artisan?.note}} <i class="bi bi-star-fill"></i></div>
-<div>{{artisan?.specialty}}</div>
-<div>{{artisan?.about}}</div>
-
-
-<section class="contact-form">
-    <h2>Formulaire de contact :</h2>
-    
-    <form #contactForm="ngForm" (ngSubmit)="sendEmail($event)" class="col g-3">
-
-        <div class="mb-3">
-            <input type="text" class="form-control" name="lastName" ngModel required #lastName="ngModel" placeholder="Votre nom">
-            @if (lastName.invalid && lastName.touched ) {
-                <p class="text-danger">Champ requis</p>
-            }
-        </div>
-
-        <div class="mb-3">
-            <input type="text" class="form-control" name="firstName" ngModel required placeholder="Votre prénom">
-        </div>
-
-        <div class="mb-3">
-            <input type="text"  class="form-control" name="subject" ngModel required #subject="ngModel" placeholder="Sujet du message">
-            @if (subject.invalid && subject.touched ) {
-                <p class="text-danger">Champ requis</p>
-            }
-        </div>
-
-        <div class="mb-3">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="textarea" name="message" ngModel required #message="ngModel" placeholder="Votre message"></textarea>
-            @if (message.invalid && message.touched ) {
-                <p class="text-danger">Champ requis</p>
-            }
-        </div>
-
-        <button type="submit" [disabled]="!contactForm.valid" (click)="myDialog.show(); contactForm.reset()">Envoyer</button>
-
-    </form>
-
-    <dialog class="sent-contact-form" #myDialog>
+<div class="content">
+    <dialog class="sent-contact-form" #myDialog >
         <div class="sent-contact-form_content">
             <p>Votre demande de contact a bien été envoyée à {{artisan?.email}}. Vous devriez être recontacté sous peu.</p>
-            <button (click)="myDialog.close()">Merci</button>
+            <button class="btn btn-primary" id="modal-button" (click)="(myDialog).close()">Merci</button>
         </div>
     </dialog>
-</section>
 
-<div>
-    <p>Vous pouvez également retrouver nos artisans sur leur site internet : <a>{{artisan?.website}}</a></p>
+
+    <article id="container">
+        <p class="text text-muted" id="introduction">Fiche d'artisan de :</p>
+        <div class="title">
+            <h2>{{artisan?.name}}</h2>
+            <div class="artisan-note">{{artisan?.note}} <i class="bi bi-star-fill" ></i></div>
+        </div>
+
+        <h3 class="artisan-specialty">{{artisan?.specialty}}</h3>
+
+        <h4 id="location">
+            <i class="bi bi-geo-alt-fill" id="location-icon"></i>
+            {{ artisan?.location }}
+        </h4>
+
+        <p class="artisan-about">{{artisan?.about}}</p>
+
+        <button class="btn btn-primary" id="artisan-button"><a href=""></a>Site web de <br/>l'artisan</button>
+    </article>
+
+    <div class="color-dash"></div>
+
+    <section class="contact-form">
+        <h3 class="form-title">Contacter l'artisan</h3>
+        <form #contactForm="ngForm" (ngSubmit)="sendEmail($event)" class="col g-3" id="form">
+
+            <div class="mb-3">
+                <input id="form-first-name" type="text" class="form-control" name="lastName" ngModel required #lastName="ngModel" placeholder="Votre nom">
+                @if (lastName.invalid && lastName.touched ) {
+                    <p class="text-danger">Champ requis</p>
+                }
+            </div>
+
+            <div class="mb-3">
+                <input id="form-last-name" type="text" class="form-control" name="firstName" ngModel required #firstName="ngModel" placeholder="Votre prénom">
+                @if (firstName.invalid && firstName.touched ) {
+                    <p class="text-danger">Champ requis</p>
+                }
+            </div>
+
+            <div class="mb-3">
+                <input id="form-subject" type="text"  class="form-control" name="subject" ngModel required #subject="ngModel" placeholder="Sujet du message">
+                @if (subject.invalid && subject.touched ) {
+                    <p class="text-danger">Champ requis</p>
+                }
+            </div>
+
+            <div class="mb-3">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" type="textarea" name="message" ngModel required #message="ngModel" placeholder="Votre message"></textarea>
+                @if (message.invalid && message.touched ) {
+                    <p class="text-danger">Champ requis</p>
+                }
+            </div>
+
+            <button class="btn btn-primary" id="form-button" type="submit" [disabled]="!contactForm.valid" (click)="myDialog.show() ; contactForm.reset()">Envoyer</button>
+
+        </form>
+
+
+    </section>
+
+    
 </div>
-
-

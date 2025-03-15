@@ -1,0 +1,151 @@
+$title-color: #00497c;
+$main-color: #0074c7;
+$white-color: #f1f8fc;
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#introduction {
+    color: #384050;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+h2 {
+    color: $title-color;
+    font-size: 3em;
+}
+
+.artisan-note {
+ font-size: 1.8em;
+ color: $main-color;
+}
+
+.artisan-specialty {
+    color: $main-color;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+#location {
+    color: $title-color;
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.artisan-about {
+    padding: 40px;
+    margin-top: 30px;
+    text-align: justify;
+    align-self: center;
+    font-size: 1.2em;
+    color: $main-color;
+    width: 80%;
+}
+
+#artisan-button {
+    margin: 20px;
+    background-color: #00497c;
+    color: $white-color;
+    align-self: center;
+    width: 250px;
+    padding-left: 40px;
+    padding-right: 40px;
+    line-height: 18px;
+}
+
+.color-dash {
+    width: 150px;
+    height: 5px;
+    background-color: #82b864;
+    margin: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+.form-title {
+    margin: 10px;
+    margin-bottom: 60px;
+    color: $title-color;
+    font-size: 2.5em;
+}
+
+#form {
+    width: 60%;
+}
+
+input::placeholder {
+    color: $main-color;
+}
+
+textarea::placeholder {
+    color: $main-color;
+}
+
+input {
+    border-color: lighten($main-color, 50%) ;
+}
+
+#form-first-name {
+    width: 50%;
+}
+
+#form-last-name {
+    width: 50%;
+}
+
+#form-subject {
+    width: 70%;
+}
+textarea {
+    border-color: lighten($main-color, 50%) ;
+    height: 150px;;
+}
+
+#form-button {
+    background-color: $main-color;
+    color: $white-color;
+    margin: 50px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 150px;
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    line-height: 18px;;
+}
+
+dialog {
+    margin: 50px;
+    background-color: $white-color;
+    color: $main-color;
+    font-size: 1.3em;
+    justify-self: center;
+}
+
+#modal-button {
+    background-color: $title-color;
+    color: $white-color;
+    padding: 10px;
+}
