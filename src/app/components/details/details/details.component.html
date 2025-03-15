@@ -1,8 +1,8 @@
 <p>details works!</p>
 <h1>{{artisan?.name}}</h1>
-<p>{{artisan?.note}}</p>
-<div>{{artisan?.email}}</div>
-<div>{{artisan?.top}}</div>
+<div>{{artisan?.note}} <i class="bi bi-star-fill"></i></div>
+<div>{{artisan?.specialty}}</div>
+<div>{{artisan?.about}}</div>
 
 
 <section class="contact-form">
@@ -45,8 +45,10 @@
             <button (click)="myDialog.close()">Merci</button>
         </div>
     </dialog>
-
 </section>
 
+<div>
+    <p>Vous pouvez également retrouver nos artisans sur leur site internet : <a>{{artisan?.website}}</a></p>
+</div>
 
 

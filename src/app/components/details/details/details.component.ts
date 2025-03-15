@@ -1,10 +1,9 @@
-import { Component, inject, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArtisansService } from '../../../artisans.service';
 import { Artisan } from '../../../artisan';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import { CommonModule } from '@angular/common';
-
 import {FormsModule } from '@angular/forms';
 
 
@@ -37,14 +36,7 @@ export class DetailsComponent{
       .sendForm('service_portfolioASM2024', 'template_109fh61', e.target as HTMLFormElement, {
         publicKey: 'NnsCukYT7qi_BWB4D',
       })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', (error as EmailJSResponseStatus).text);
-        },
-      );
+
   }
 }
  

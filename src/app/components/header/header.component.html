@@ -11,21 +11,21 @@
         <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto" style="padding-right: 20px;">
                 <li class="nav-item">
-                   <a class="nav-link" [routerLink]="'artisans-list/Batiment'" routerLinkActive="active"  (click)="isMenuCollapsed = true">Bâtiment</a>
+                   <a class="nav-link" [routerLink]="'artisans-search/Bâtiment'" routerLinkActive="active"  (click)="isMenuCollapsed = true">Bâtiment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'artisans-list/Services'" (click)="isMenuCollapsed = true">Services</a>
+                    <a class="nav-link" [routerLink]="'artisans-search/Services'" (click)="isMenuCollapsed = true">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'artisans-list/Fabrication'" (click)="isMenuCollapsed = true">Fabrication</a>
+                    <a class="nav-link" [routerLink]="'artisans-search/Fabrication'" (click)="isMenuCollapsed = true">Fabrication</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="'artisans-list/Alimentation'" (click)="isMenuCollapsed = true">Alimentation</a>
+                    <a class="nav-link" [routerLink]="'artisans-search/Alimentation'" (click)="isMenuCollapsed = true">Alimentation</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="text" placeholder="Recherche">
-                <button type="submit" class="btn ">
+            <form class="d-flex" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                <input  class="form-control me-2" type="text" placeholder="Filtrer par nom" #filter formControlName="searchValue">
+                <button  type="submit" class="btn "  >
                     <span class="bi-search" style="font-size: 1.5rem; color:#0074c7"></span>
                 </button>
             </form>

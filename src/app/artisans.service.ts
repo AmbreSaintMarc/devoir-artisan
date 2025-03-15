@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class ArtisansService {
   url = 'http://localhost:3000/artisans';
-  
+  constructor(private http: HttpClient) {}
 
   async getAllArtisans(): Promise<Artisan[]> {
     const data = await fetch(this.url);
@@ -23,9 +23,11 @@ export class ArtisansService {
     return (await data.json()) ?? {};  
   }
 
-  async getArtisansByCategory(category:string): Promise<Artisan | undefined> {
-    const data = await fetch(`${this.url}/${category}`);
-    return (await data.json()) ?? {};  
+  getArtisans(): Observable<Artisan[]> {
+    return this.http.get<Artisan[]>(
+      `http://localhost:3000/artisans`
+    )
   }
+
 
 }
