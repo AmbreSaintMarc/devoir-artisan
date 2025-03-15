@@ -13,8 +13,14 @@ export const routes: Routes = [
         component: HomeComponent,
     },
     {
-        path:'artisans-list/:category',
+        path:'artisans-search/:category',
         component: ArtisanSearchComponent,
+        
+    },
+    {
+        path:'artisans-search',
+        redirectTo: 'artisans-search/',
+        pathMatch: 'full',
         
     },
     {
@@ -28,8 +34,9 @@ export const routes: Routes = [
         
     },
     {
-        path:'**',
+        path:'page-404',
         component: Page404Component,
+
         
     }
 ];

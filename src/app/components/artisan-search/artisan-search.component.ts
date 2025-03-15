@@ -4,7 +4,9 @@ import { ArtisansService} from '../../artisans.service';
 import { ArtisanComponent } from '../artisan/artisan.component';
 import { Artisan } from '../../artisan';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { Router } from '@angular/router';
+import { ParamMap, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { map, Observable, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-artisan-search',
@@ -14,54 +16,37 @@ import { Router } from '@angular/router';
   providers : [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
 })
 export class ArtisanSearchComponent implements OnInit{
-  public artisans : Artisan[] = []
-  artisanList: Artisan[] = [];
+  public artisans : Observable<Artisan[]> | null = null;
   artisanService = inject(ArtisansService);
+  artisansList : Artisan[] = []
   router = inject(Router)
-  artisan: Artisan | undefined;
+  private readonly route: ActivatedRoute = inject(ActivatedRoute);
+  category: string | null = null ;
 
-  constructor(private service : ArtisansService, private location: Location) {
-    this.service.getAllArtisans().then((artisanList: Artisan[]) => {
-      this.artisanList = artisanList ;
-    });
-  }
-
-  isBuilding = false;
-  isServices = false;
-  isManufacturing = false;
-  isFood = false;
+  constructor(private service : ArtisansService) {}
   
   ngOnInit(): void {
+  //Get artisans depending on filter
+    this.route.queryParamMap.pipe( 
+      map((param: ParamMap) => param.get('searchValue')),
+      switchMap(searchValue => this.service.getArtisans().pipe( //Get artisansList
+        map( artisansList => [searchValue,  artisansList] as const) //Subscribe to my category AND my artisansList (to be able to do multiple filters) 
+      ))
+      ).subscribe( //Subscribe to url || searchValue
+        ([searchValue, artisansList]) => {
+          this.artisansList = artisansList.filter((artisan) => //List = filteredList 
+          artisan.name.toLowerCase().includes(searchValue?.toLowerCase() ?? '') // Filter search in artisan.name (and syntax)
+          || artisan.specialty.toLowerCase().includes(searchValue?.toLowerCase() ?? '') //  Filter search in artisan.specialty (and syntax)
+          || artisan.location.toLowerCase().includes(searchValue?.toLowerCase() ?? ''),  //  Filter search in artisan.location (and syntax)
+        )  ;        
+      }
+    )
 
-    this.router.events.subscribe(event => {
-      if (this.location.path() !== '/artisans-list/Batiment') {
-        this.isBuilding = false;
-      } else {
-        this.isBuilding = true;
-      }
-    })
-    this.router.events.subscribe(event => {
-      if (this.location.path() !== '/artisans-list/Services') {
-        this.isServices = false;
-      } else {
-        this.isServices = true;
-      }
-    })
-    this.router.events.subscribe(event => {
-      if (this.location.path() !== '/artisans-list/Fabrication') {
-        this.isManufacturing = false;
-      } else {
-        this.isManufacturing = true;
-      }
-    })
-    this.router.events.subscribe(event => {
-      if (this.location.path() !== '/artisans-list/Alimentation') {
-        this.isFood = false;
-      } else {
-        this.isFood = true;
-      }
-    })
+    this.route.paramMap.pipe(
+        map(param => param.get('category')),  
+        ).subscribe((category) => { //Get the url category
+            this.category = category //Match url category to artisan.category
+        })
   }
-
 
 }
