@@ -1,15 +1,13 @@
 <a [routerLink]="['/details', artisan().id]">
 <div>
     <h2 class="listing-heading">
-        <div class="card text-center" style="width: 18rem;">
+        <div class="card" id=cards-container >
             
-            <div class="card-body">
-                <h5 class="card-title">{{ artisan().name }}</h5>
-                <p class="card-text" id="specialty">{{ artisan().specialty }}</p>
-                
-                <div class="star"> {{artisan().note}} <i class="bi bi-star-fill"></i></div>
-
-                <p class="card-text-muted">{{ artisan().location }}</p>
+            <div class="card-body" id="cards">
+                <h3 class="card-title" id="title">{{ artisan().name }}</h3>
+                <div class="note"> {{artisan().note}} <i class="bi bi-star-fill" id="star"></i></div>
+                <p class="h5" id="specialty">{{ artisan().specialty }}</p>
+                <p class="h5" id="location"><i class="bi bi-geo-alt-fill" id="location-icon"></i>{{ artisan().location }}</p>
             </div>
         </div>
 

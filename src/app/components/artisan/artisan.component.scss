@@ -1,15 +1,36 @@
-.star-rating::before {
-    content: "⭐⭐⭐⭐⭐";
-  }
-  
-  .star-rating {
-      display: inline-block;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: rgba(0, 0, 0, 0.1);
-  }
-  
-  body {
-    font-size: 32px; /* for demo purpose */
-  }
+a  {
+  text-decoration: none;
+}
 
+
+#cards-container {
+  color: #00497c ;
+  padding: 20px;
+  border-radius: 15px;
+  border-color: #dae2e7;
+}
+
+#cards {
+  width : 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.note {
+  font-size: smaller;
+  padding: 10px;
+}
+
+#specialty {
+  color: #0074c7;
+}
+
+#star {
+  color: #0074c7 ;
+}
+
+
+#location-icon {
+  font-size: medium;
+}

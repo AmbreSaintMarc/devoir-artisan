@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 80px;
+    color: #00497c;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+.color-dash {
+    width: 158px;
+    height: 7px;
+    background-color: #0074c7 ;
+    align-self: center;
+
+}
+
+.artisans-list {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+@media (max-width: 979px) { 
+    .container {
+        gap: 30px;
+    }
+    h2 {
+        font-size: 2.5em;
+    }
+    .color-dash {
+        width: 130px;
+        height: 6px;
+    }
+}
+
+@media (max-width: 480px) { 
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .color-dash {
+        width: 100px;
+        height: 4px;
+    }
+}
